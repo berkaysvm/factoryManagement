@@ -6,11 +6,11 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity
+
 @Getter
 @Setter
 @AllArgsConstructor
-@Table(name = "basicKnowledge")
+@MappedSuperclass
 public class BasicKnowledge {
     private String firstname;
     private String lastname;

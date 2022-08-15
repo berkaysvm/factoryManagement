@@ -13,6 +13,7 @@ public class Employee extends BasicKnowledge {
     private String employeeNo;
     private String identityNo;
     private int groupNo;
+    @OneToOne(mappedBy = "employee")
     private AuthorityList authority;
     @OneToMany(mappedBy = "employee")
     private Set<Request> requests;

@@ -10,4 +10,7 @@ public class AuthorityList {
     @Column(name = "id")
     private long id;
     private String authorityName;
+    @OneToOne
+    @JoinColumn(name = "employee_id")
+    private Employee employee;
 }

@@ -16,6 +16,6 @@ public class Department {
     @Column(name = "id")
     private int id;
     private String departmentName;
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "department")
     private Set<Employee> employees;
 }
