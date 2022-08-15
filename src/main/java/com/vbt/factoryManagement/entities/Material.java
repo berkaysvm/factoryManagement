@@ -1,6 +1,7 @@
 package com.vbt.factoryManagement.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "materials")
@@ -14,4 +15,11 @@ public class Material {
     private Long materialStock;
     private int materialCost;
     private String image;
+    @OneToMany(mappedBy = "material")
+    private Set<MaterialProduct> materialProducts;
+    @OneToMany(mappedBy = "material")
+    private Set<OrderMaterialRelational> orderMaterials;
+
+
+
 }
