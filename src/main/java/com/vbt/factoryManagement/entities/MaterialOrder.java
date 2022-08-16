@@ -9,7 +9,7 @@ public class MaterialOrder {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String OrderNo;
+    private String orderNo;
 
     @OneToOne
     @JoinColumn(name = "material_id")
