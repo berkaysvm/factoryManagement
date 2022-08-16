@@ -10,9 +10,8 @@ public class AuthorityListDTO {
     private String authorityName;
     private EmployeeDTO employeeDTO;
 
-    public void AuthorityListDTO()
-    {
-    }
+    public void AuthorityListDTO() {}
+
     public AuthorityListDTO(Builder builder)
     {
         this.id = builder.id;
@@ -27,10 +26,8 @@ public class AuthorityListDTO {
         private String authorityName;
         private EmployeeDTO employeeDTO;
 
-        public Builder()
-        {
+        public Builder() {}
 
-        }
         public static Builder AuthorityBuilderWith()
         {
             return new Builder();
@@ -45,7 +42,6 @@ public class AuthorityListDTO {
         {
             this.authorityName = authorityName;
             return this;
-
         }
 
         public Builder EmployeeDto (EmployeeDTO employeeDTO)

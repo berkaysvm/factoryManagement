@@ -45,8 +45,7 @@ public class EmployeeDTO {
     }
 
 
-    public void EmloyeeDto()
-    {}
+    public void EmloyeeDto() {}
 
     public static class Builder
     {
@@ -57,7 +56,6 @@ public class EmployeeDTO {
         private AuthorityListDTO authorityListDTO;
         private Set<RequestDTO> requestsDTO;
         private DepartmentDTO departmentDTO;
-
         private String firstname;
         private String lastname;
         private String eMail;
@@ -65,9 +63,7 @@ public class EmployeeDTO {
         private String adress;
 
 
-        public Builder(){
-
-        }
+        public Builder(){}
 
 
 
@@ -75,6 +71,7 @@ public class EmployeeDTO {
         {
             return new Builder();
         }
+
 
         public Builder id(Long id) {this.id = id; return this;}
         public Builder employeeNo(String employeeNo){this.employeeNo= employeeNo; return this;}
