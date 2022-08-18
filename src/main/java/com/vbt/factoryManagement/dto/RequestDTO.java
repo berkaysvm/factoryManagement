@@ -41,7 +41,7 @@ public class RequestDTO {
 
         public Builder(){}
 
-        public Builder RequestDTOBuilderWith()
+        public static Builder RequestDTOBuilderWith()
         {
             return new Builder();
         }

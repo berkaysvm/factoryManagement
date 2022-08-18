@@ -34,12 +34,12 @@ public class MaterialOrderDTO {
 
         public Builder(){}
 
-        public Builder MaterialOrderDTOBuilderWith()
+        public static Builder MaterialOrderDTOBuilderWith()
         {
             return new Builder();
         }
 
-        public Builder id(int id){this.id=id; return this;}
+        public Builder id(int id){this.id = id; return this;}
         public Builder orderNo(String orderNo){this.orderNo = orderNo; return this;}
         public Builder material(MaterialDTO material){this.material = material; return this;}
         public Builder orderCompanies(OrderCompaniesDTO orderCompanies){ this.orderCompanies = orderCompanies; return this;}

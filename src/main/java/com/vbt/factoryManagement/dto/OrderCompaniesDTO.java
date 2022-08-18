@@ -36,7 +36,7 @@ public class OrderCompaniesDTO {
 
         public Builder(){}
 
-        public Builder OrderCompaniesDTOBuilderWith()
+        public static Builder OrderCompaniesDTOBuilderWith()
         {
             return new Builder();
         }

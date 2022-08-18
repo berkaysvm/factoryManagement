@@ -3,12 +3,14 @@ package com.vbt.factoryManagement.dto;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.Set;
+
 @Getter
 public class AuthorityListDTO {
 
     private long id;
     private String authorityName;
-    private EmployeeDTO employeeDTO;
+    private Set<EmployeeDTO> employeeDTOSet;
 
     public void AuthorityListDTO() {}
 
@@ -16,7 +18,7 @@ public class AuthorityListDTO {
     {
         this.id = builder.id;
         this.authorityName= builder.authorityName;
-        this.employeeDTO=builder.employeeDTO;
+        this.employeeDTOSet=builder.employeeDTOSet;
     }
 
 
@@ -24,7 +26,7 @@ public class AuthorityListDTO {
     {
         private long id;
         private String authorityName;
-        private EmployeeDTO employeeDTO;
+        private Set<EmployeeDTO> employeeDTOSet;
 
         public Builder() {}
 
@@ -44,9 +46,9 @@ public class AuthorityListDTO {
             return this;
         }
 
-        public Builder EmployeeDto (EmployeeDTO employeeDTO)
+        public Builder employeeDTOSet(Set<EmployeeDTO> employeeDTOSet)
         {
-            this.employeeDTO = employeeDTO;
+            this.employeeDTOSet = employeeDTOSet;
             return this;
         }
         public AuthorityListDTO build()

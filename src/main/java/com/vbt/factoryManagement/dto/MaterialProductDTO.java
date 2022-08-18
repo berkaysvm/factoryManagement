@@ -30,7 +30,7 @@ public class MaterialProductDTO {
 
         public Builder(){}
 
-        public Builder MaterialProductDTOBuilderWith()
+        public static Builder MaterialProductDTOBuilderWith()
         {
             return new Builder();
         }

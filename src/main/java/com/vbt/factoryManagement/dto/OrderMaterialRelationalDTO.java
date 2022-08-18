@@ -29,7 +29,7 @@ public class OrderMaterialRelationalDTO {
 
         public Builder(){}
 
-        public Builder OrderMaterialRelationalDTOBuilderWith()
+        public static Builder OrderMaterialRelationalDTOBuilderWith()
         {
             return new Builder();
         }

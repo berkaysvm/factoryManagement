@@ -31,7 +31,7 @@ public class DepartmentDTO {
 
         public Builder(){}
 
-        public Builder DepartmentDtoBuilderWith()
+        public static Builder DepartmentDtoBuilderWith()
         {
             return new Builder();
         }

@@ -31,7 +31,7 @@ public class ProductOrderListDTO {
 
         public Builder(){}
 
-        public Builder ProductOrderListDTOBuilderWith()
+        public static Builder ProductOrderListDTOBuilderWith()
         {
             return new Builder();
         }

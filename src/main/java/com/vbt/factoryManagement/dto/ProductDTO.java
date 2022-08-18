@@ -1,9 +1,11 @@
 package com.vbt.factoryManagement.dto;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 import java.util.Set;
 
-
+@Getter
 public class ProductDTO {
 
     private int id;
@@ -33,7 +35,7 @@ public class ProductDTO {
         private Set<MaterialProductDTO> materialProductsDto;
 
         public Builder(){}
-        public Builder ProductDTOBuilderWith()
+        public static Builder ProductDTOBuilderWith()
         {
             return new Builder();
         }

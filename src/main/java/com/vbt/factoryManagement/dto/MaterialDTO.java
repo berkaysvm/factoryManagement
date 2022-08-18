@@ -46,7 +46,7 @@ public class MaterialDTO {
 
         public Builder(){}
 
-        public Builder MaterialDTOBuilderWith()
+        public static Builder MaterialDTOBuilderWith()
         {
             return new Builder();
         }

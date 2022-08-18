@@ -1,10 +1,17 @@
 package com.vbt.factoryManagement.entities;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Set;
 
+@NoArgsConstructor
 @Entity
 @Table(name = "materials")
+@Getter
+@Setter
 public class Material {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

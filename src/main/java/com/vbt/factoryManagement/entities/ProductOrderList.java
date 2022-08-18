@@ -1,8 +1,14 @@
 package com.vbt.factoryManagement.entities;
 
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import javax.persistence.*;
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
 @Table(name = "productOrderList")
 public class ProductOrderList {
     @Id
@@ -14,9 +20,9 @@ public class ProductOrderList {
     @JoinColumn(name = "product_id")
     private Product product;
 
-    @OneToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+//    @ManyToOne
+//    @JoinColumn(name = "customer_id")
+//    private Customer customer;
 
     private int quantity;
 }

@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Getter
+@MappedSuperclass
 public class EmployeeDTO {
 
     private long id;
@@ -67,7 +68,7 @@ public class EmployeeDTO {
 
 
 
-        public Builder EmloyeeBuilderWith()
+        public static Builder EmloyeeBuilderWith()
         {
             return new Builder();
         }
