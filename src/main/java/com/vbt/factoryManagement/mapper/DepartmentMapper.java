@@ -22,7 +22,7 @@ public class DepartmentMapper {
                 .build();
     }
 
-    public static Department convertEntity(DepartmentDTO departmentDTO)
+    public Department convertEntity(DepartmentDTO departmentDTO)
     {
         Department department = new Department();
         department.setDepartmentName(departmentDTO.getDepartmentName());

@@ -1,11 +1,16 @@
 package com.vbt.factoryManagement.mapper;
 
 import com.vbt.factoryManagement.dto.EmployeeDTO;
+import com.vbt.factoryManagement.dto.MaterialProductDTO;
 import com.vbt.factoryManagement.dto.RequestDTO;
 import com.vbt.factoryManagement.entities.Employee;
+import com.vbt.factoryManagement.entities.MaterialProduct;
+import com.vbt.factoryManagement.entities.Product;
 import com.vbt.factoryManagement.entities.Request;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -13,6 +18,21 @@ import java.util.stream.Collectors;
 public class EmployeeMapper {
     AuthorityMapper authorityMapper = new AuthorityMapper();
     DepartmentMapper departmentMapper = new DepartmentMapper();
+    EmployeeMapper employeeMapper;
+
+    public List<EmployeeDTO> maplist(List<Employee> employeeList)
+    {
+
+        List<EmployeeDTO> returnList =new ArrayList<>();
+        for (Employee employee : employeeList)
+
+        {
+         returnList.add(map(employee));
+        }
+
+
+        return returnList;
+    }
 
     public static EmployeeDTO map(Employee employee)
         {
@@ -29,7 +49,7 @@ public class EmployeeMapper {
                     .phoneNumber(employee.getPhoneNumber())
                     .groupNo(employee.getGroupNo())
                     .identitiyNo(employee.getIdentityNo())
-                     .authorityListDTO(authorityMapper.map(employee.getAuthority()))
+                    .authorityListDTO(authorityMapper.map(employee.getAuthority()))
                     .requestsDTO(requestDTOS)
                     .build();
         }
@@ -41,7 +61,7 @@ public class EmployeeMapper {
                 employee.setEmployeeNo(employeeDTO.getEmployeeNo());
                 employee.setAuthority(AuthorityMapper.convertEntitiy(employeeDTO.getAuthorityListDTO()));
                 employee.setGroupNo(employeeDTO.getGroupNo());
-                employee.setDepartment(DepartmentMapper.convertEntity(employeeDTO.getDepartmentDTO()));
+                employee.setDepartment(departmentMapper.convertEntity(employeeDTO.getDepartmentDTO()));
                 employee.setIdentityNo(employeeDTO.getIdentityNo());
                 employee.setAdress(employeeDTO.getAdress());
                 employee.setEMail(employeeDTO.getEMail());

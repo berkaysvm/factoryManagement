@@ -1,9 +1,14 @@
 package com.vbt.factoryManagement.mapper;
 
+import com.vbt.factoryManagement.dto.MaterialOrderDTO;
 import com.vbt.factoryManagement.dto.MaterialProductDTO;
 import com.vbt.factoryManagement.entities.Material;
+import com.vbt.factoryManagement.entities.MaterialOrder;
 import com.vbt.factoryManagement.entities.MaterialProduct;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class MaterialProductMapper {
@@ -17,6 +22,19 @@ public class MaterialProductMapper {
                 .material(materialMapper.map(materialProduct.getMaterial()))
                 .product(productMapper.map(materialProduct.getProduct()))
                 .quantity(materialProduct.getQuantity()).build();
+    }
+    public List<MaterialProductDTO> maplist(List<MaterialProduct> materialProducts)
+    {
+
+        List<MaterialProductDTO> returnList =new ArrayList<>();
+        for (MaterialProduct materialProduct: materialProducts)
+
+        {
+            returnList.add(map(materialProduct));
+        }
+
+
+        return returnList;
     }
     public static MaterialProduct convertEntity(MaterialProductDTO materialProductDTO)
     {
