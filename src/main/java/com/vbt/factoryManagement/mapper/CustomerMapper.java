@@ -9,39 +9,33 @@ import org.springframework.stereotype.Component;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-//@Component
+@Component
 public class CustomerMapper {
-//
-//    ProductOrderListMapper productOrderListMapper = new  ProductOrderListMapper();
-//
-//    public CustomerDTO map (Customer customer)
-//    {
-//        Set<ProductOrderList> customers = customer.getProductOrderLists();
-//        Set<ProductOrderListDTO> orderListDTOS = customers.stream().map(ProductOrderListMapper::map).collect(Collectors.toSet());
-//        return CustomerDTO.Builder.CustomDTOBuilderWith()
-//                .id(customer.getId())
-//                .customerNo(customer.getCustomerNo())
-//                .companyName(customer.getCompanyName())
-//                .productOrderLists(orderListDTOS)
-//                .firstname(customer.getFirstname())
-//                .lastname(customer.getLastname())
-//                .adress(customer.getAdress())
-//                .eMail(customer.getEMail())
-//                .phoneNumber(customer.getPhoneNumber())
-//                .build();
-//    }
-//    public Customer convertEntity ( CustomerDTO customerDTO)
-//    {
-//        Set<ProductOrderListDTO> customers = customerDTO.getProductOrderLists();
-//        Customer customer = new Customer(customerDTO.getFirstname()
-//                ,customerDTO.getLastname()
-//                ,customerDTO.getEMail()
-//                ,customerDTO.getPhoneNumber()
-//                ,customerDTO.getAdress()
-//                ,customerDTO.getId()
-//                ,customerDTO.getCustomerNo()
-//                ,customerDTO.getCompanyName()
-//                ,(customerDTO.getProductOrderLists()).stream().map(ProductOrderListMapper::convertEntity).collect(Collectors.toSet()));
-//        return customer;
-//    }
+
+    ProductOrderListMapper productOrderListMapper = new  ProductOrderListMapper();
+
+    public CustomerDTO map (Customer customer)
+    {
+        Set<ProductOrderList> customers = customer.getProductOrderLists();
+        Set<ProductOrderListDTO> orderListDTOS = customers.stream().map(ProductOrderListMapper::map).collect(Collectors.toSet());
+        return CustomerDTO.Builder.CustomDTOBuilderWith()
+                .id(customer.getId())
+                .customerNo(customer.getCustomerNo())
+                .companyName(customer.getCompanyName())
+                .productOrderLists(orderListDTOS)
+                .firstname(customer.getFirstname())
+                .lastname(customer.getLastname())
+                .adress(customer.getAdress())
+                .eMail(customer.getEMail())
+                .phoneNumber(customer.getPhoneNumber())
+                .build();
+    }
+    public Customer convertEntity ( CustomerDTO customerDTO)
+    {
+        Set<ProductOrderListDTO> customers = customerDTO.getProductOrderLists();
+        Customer customer = new Customer();
+        customer.setCustomerNo(customerDTO.getCustomerNo());
+        customer.setLastname(customerDTO.getLastname());
+        return customer;
+    }
 }

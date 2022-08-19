@@ -20,6 +20,6 @@ public class AuthorityList {
     private long id;
     private String authorityName;
 
-    @OneToMany(mappedBy = "authority_list",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "authority",fetch = FetchType.EAGER)
     private Set<Employee> employees;
 }

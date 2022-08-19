@@ -21,11 +21,11 @@ public class Employee extends BasicKnowledge {
     private String identityNo;
     private int groupNo;
 
-    @ManyToOne(targetEntity = com.vbt.factoryManagement .entities.AuthorityList.class , fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = com.vbt.factoryManagement.entities.AuthorityList.class)
     @JoinColumn(name = "authority_id")
     private AuthorityList authority;
 
-    @OneToMany(mappedBy = "employee_id")
+    @OneToMany(mappedBy = "employee")
     private Set<Request> requests;
 
     @ManyToOne
