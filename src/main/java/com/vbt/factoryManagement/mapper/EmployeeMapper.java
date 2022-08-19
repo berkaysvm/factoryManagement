@@ -34,11 +34,20 @@ public class EmployeeMapper {
                     .build();
         }
 
-//    public Employee convertEntity (EmployeeDTO employeeDTO)
-//            {
-//                Employee employee = new Employee(employeeDTO.getEmployeeNo(),employeeDTO.getLastname(),employeeDTO.getEMail(),
-//                        employeeDTO.getPhoneNumber(), employeeDTO.getAdress(), employeeDTO.getEmployeeNo(), employeeDTO.getIdentityNo(), employeeDTO.getRequestsDTO()
-//                        ,departmentMapper.convertEntity(employeeDTO.getDepartmentDTO()), employeeDTO.getId(),employeeDTO.getGroupNo(), authorityMapper.convertEntitiy(employeeDTO.getAuthorityListDTO()));
-//               return employee;
-//            }
+    public Employee convertEntity (EmployeeDTO employeeDTO)
+            {
+
+                Employee employee = new Employee();
+                employee.setEmployeeNo(employeeDTO.getEmployeeNo());
+                employee.setAuthority(AuthorityMapper.convertEntitiy(employeeDTO.getAuthorityListDTO()));
+                employee.setGroupNo(employeeDTO.getGroupNo());
+                employee.setDepartment(DepartmentMapper.convertEntity(employeeDTO.getDepartmentDTO()));
+                employee.setIdentityNo(employeeDTO.getIdentityNo());
+                employee.setAdress(employeeDTO.getAdress());
+                employee.setEMail(employeeDTO.getEMail());
+                employee.setFirstname(employeeDTO.getFirstname());
+                employee.setLastname(employeeDTO.getLastname());
+                employee.setPhoneNumber(employeeDTO.getPhoneNumber());
+               return employee;
+            }
 }

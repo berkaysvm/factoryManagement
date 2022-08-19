@@ -32,10 +32,15 @@ public class CustomerMapper {
     }
     public Customer convertEntity ( CustomerDTO customerDTO)
     {
-        Set<ProductOrderListDTO> customers = customerDTO.getProductOrderLists();
         Customer customer = new Customer();
         customer.setCustomerNo(customerDTO.getCustomerNo());
         customer.setLastname(customerDTO.getLastname());
+        customer.setFirstname(customerDTO.getFirstname());
+        customer.setId(customerDTO.getId());
+        customer.setCompanyName(customerDTO.getCompanyName());
+        customer.setAdress(customerDTO.getAdress());
+        customer.setEMail(customerDTO.getEMail());
+        customer.setPhoneNumber(customerDTO.getPhoneNumber());
         return customer;
     }
 }

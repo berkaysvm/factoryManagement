@@ -17,7 +17,7 @@ public class ProductOrderListMapper {
         return ProductOrderListDTO.Builder.ProductOrderListDTOBuilderWith()
                 .id(productOrderList.getId())
                 .productDTO(productMapper.map(productOrderList.getProduct()))
-                //.customerDTO(customerMapper.map(productOrderList.getCustomer()))
+                .customerDTO(customerMapper.map(productOrderList.getCustomer()))
                 .quantity(productOrderList.getQuantity()).build();
     }
 
@@ -25,7 +25,7 @@ public class ProductOrderListMapper {
     {
         ProductOrderList productOrderList = new ProductOrderList();
         productOrderList.setProduct(productMapper.convertEntity(productOrderListDTO.getProductDTO()));
-        //productOrderList.setCustomer(customerMapper.convertEntity(productOrderListDTO.getCustomerDTO()));
+        productOrderList.setCustomer(customerMapper.convertEntity(productOrderListDTO.getCustomerDTO()));
         productOrderList.setId(productOrderListDTO.getId());
         productOrderList.setQuantity(productOrderListDTO.getQuantity());
         return productOrderList;

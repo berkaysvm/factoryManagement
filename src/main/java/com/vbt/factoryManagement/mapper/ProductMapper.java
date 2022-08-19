@@ -34,7 +34,6 @@ public class ProductMapper {
         product.setId(productDTO.getId());
         product.setProductName(productDTO.getProductName());
         product.setProductColour(productDTO.getProductColour());
-        product.setMaterialProducts(materialProduct);
         product.setProductStock(productDTO.getProductStock());
         product.setProductCost(productDTO.getProductCost());
         return product;

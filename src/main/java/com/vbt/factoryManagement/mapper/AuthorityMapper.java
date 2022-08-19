@@ -25,7 +25,7 @@ public class AuthorityMapper {
                 .build();
     }
 
-    public AuthorityList convertEntitiy(AuthorityListDTO authorityListDTO)
+    public static AuthorityList convertEntitiy(AuthorityListDTO authorityListDTO)
     {
         AuthorityList authorityList =new AuthorityList();
         authorityList.setId(authorityListDTO.getId());
