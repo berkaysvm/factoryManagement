@@ -19,7 +19,7 @@ public class AuthorityServiceImpl implements AuthorityService {
     }
 
     @Override
-    public AuthorityListDTO getCustomers(int id) {
+    public AuthorityListDTO getAuthority(int id) {
         return authorityMapper.map(authorityRepository.getReferenceById(id));
     }
 

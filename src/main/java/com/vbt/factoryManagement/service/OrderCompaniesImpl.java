@@ -35,6 +35,6 @@ public class OrderCompaniesImpl implements OrderCompaniesService{
 
     @Override
     public OrderCompaniesDTO getById(int id) {
-        return null;
+        return orderCompaniesMapper.map(orderCompaniesRepository.getReferenceById(id));
     }
 }
