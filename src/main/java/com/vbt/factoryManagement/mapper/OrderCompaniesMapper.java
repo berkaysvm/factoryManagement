@@ -15,8 +15,9 @@ import java.util.stream.Collectors;
 public class OrderCompaniesMapper {
     public OrderCompaniesDTO map(OrderCompanies orderCompanies)
     {
+        OrderMaterialRelationalMapper orderMaterialRelationalMapper = new OrderMaterialRelationalMapper();
         Set<OrderMaterialRelational> orderCompanies1 = orderCompanies.getOrderMaterials();
-        Set<OrderMaterialRelationalDTO> orderMaterialRelationalDTOS = orderCompanies1.stream().map(OrderMaterialRelationalMapper::map).collect(Collectors.toSet());
+        Set<OrderMaterialRelationalDTO> orderMaterialRelationalDTOS = orderCompanies1.stream().map(orderMaterialRelationalMapper::map).collect(Collectors.toSet());
 
         Set<MaterialOrder> materialOrders = orderCompanies.getMaterialOrders();
         Set<MaterialOrderDTO> materialOrderDTOS = materialOrders.stream().map(MaterialOrderMapper::map).collect(Collectors.toSet());

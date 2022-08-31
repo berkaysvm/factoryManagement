@@ -17,7 +17,7 @@ public class CustomerMapper {
     public CustomerDTO map (Customer customer)
     {
         Set<ProductOrderList> customers = customer.getProductOrderLists();
-        Set<ProductOrderListDTO> orderListDTOS = customers.stream().map(ProductOrderListMapper::map).collect(Collectors.toSet());
+        Set<ProductOrderListDTO> orderListDTOS = customers.stream().map(productOrderListMapper::map).collect(Collectors.toSet());
         return CustomerDTO.Builder.CustomDTOBuilderWith()
                 .id(customer.getId())
                 .customerNo(customer.getCustomerNo())

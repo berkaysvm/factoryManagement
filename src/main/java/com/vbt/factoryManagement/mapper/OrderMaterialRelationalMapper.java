@@ -11,7 +11,7 @@ public class OrderMaterialRelationalMapper {
 
      static OrderCompaniesMapper orderCompaniesMappers = new OrderCompaniesMapper();
      static MaterialMapper materialMapper = new MaterialMapper();
-    public static OrderMaterialRelationalDTO map(OrderMaterialRelational orderMaterialRelational) {
+    public OrderMaterialRelationalDTO map(OrderMaterialRelational orderMaterialRelational) {
         return OrderMaterialRelationalDTO.Builder.
                 OrderMaterialRelationalDTOBuilderWith()
                 .id(orderMaterialRelational.getId())

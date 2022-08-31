@@ -11,7 +11,7 @@ public class ProductOrderListMapper {
 
     static ProductMapper productMapper = new ProductMapper();
     static CustomerMapper customerMapper = new CustomerMapper();
-    public static ProductOrderListDTO map(ProductOrderList productOrderList)
+    public  ProductOrderListDTO map(ProductOrderList productOrderList)
     {
 
         return ProductOrderListDTO.Builder.ProductOrderListDTOBuilderWith()
@@ -21,7 +21,7 @@ public class ProductOrderListMapper {
                 .quantity(productOrderList.getQuantity()).build();
     }
 
-    public static ProductOrderList convertEntity(ProductOrderListDTO productOrderListDTO)
+    public ProductOrderList convertEntity(ProductOrderListDTO productOrderListDTO)
     {
         ProductOrderList productOrderList = new ProductOrderList();
         productOrderList.setProduct(productMapper.convertEntity(productOrderListDTO.getProductDTO()));

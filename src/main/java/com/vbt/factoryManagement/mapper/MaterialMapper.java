@@ -14,11 +14,12 @@ import java.util.stream.Collectors;
 public class MaterialMapper {
     public MaterialDTO map(Material material)
     {
+        OrderMaterialRelationalMapper orderMaterialRelationalMapper = new OrderMaterialRelationalMapper();
         Set<MaterialProduct> materialProducts = material.getMaterialProducts();
         Set<MaterialProductDTO> materialProductDTOS = materialProducts.stream().map(MaterialProductMapper::map).collect(Collectors.toSet());
 
         Set<OrderMaterialRelational> orderMaterialRelationals = material.getOrderMaterials();
-        Set<OrderMaterialRelationalDTO> orderMaterialRelationalDTOS = orderMaterialRelationals.stream().map(OrderMaterialRelationalMapper::map).collect(Collectors.toSet());
+        Set<OrderMaterialRelationalDTO> orderMaterialRelationalDTOS = orderMaterialRelationals.stream().map(orderMaterialRelationalMapper::map).collect(Collectors.toSet());
 
 
         return MaterialDTO.Builder.MaterialDTOBuilderWith()

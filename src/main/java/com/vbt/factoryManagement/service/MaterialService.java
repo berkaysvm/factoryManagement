@@ -8,4 +8,6 @@ public interface MaterialService {
     MaterialDTO save(MaterialDTO materialDTO);
     String deleteById(Long id);
 
+    MaterialDTO getById(Long id);
+
 }
