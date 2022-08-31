@@ -5,7 +5,9 @@ import com.vbt.factoryManagement.entities.Customer;
 import com.vbt.factoryManagement.mapper.CustomerMapper;
 import com.vbt.factoryManagement.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CustomerServiceİmpl implements CustomerService{
 
     private CustomerRepository customerRepository;

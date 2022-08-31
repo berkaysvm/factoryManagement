@@ -11,10 +11,12 @@ import java.util.stream.Collectors;
 
 @Component
 public class DepartmentMapper {
+
+    EmployeeMapper employeeMapper = new EmployeeMapper();
     public DepartmentDTO map(Department department)
     {
         Set<Employee> employee = department.getEmployees();
-        Set<EmployeeDTO> employeeDTOS = employee.stream().map(EmployeeMapper::map).collect(Collectors.toSet());
+        Set<EmployeeDTO> employeeDTOS = employee.stream().map(employeeMapper::map).collect(Collectors.toSet());
         return DepartmentDTO.Builder.DepartmentDtoBuilderWith()
                 .id(department.getId())
                 .departmentName(department.getDepartmentName())

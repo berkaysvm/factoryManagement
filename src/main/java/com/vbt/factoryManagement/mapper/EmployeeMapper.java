@@ -16,9 +16,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class EmployeeMapper {
-    AuthorityMapper authorityMapper = new AuthorityMapper();
-    DepartmentMapper departmentMapper = new DepartmentMapper();
-    EmployeeMapper employeeMapper;
+
 
     public List<EmployeeDTO> maplist(List<Employee> employeeList)
     {
@@ -34,10 +32,12 @@ public class EmployeeMapper {
         return returnList;
     }
 
-    public static EmployeeDTO map(Employee employee)
+    public EmployeeDTO map(Employee employee)
         {
+
+            RequestMapper requestMapper = new RequestMapper();
             Set<Request> requestSet = employee.getRequests();
-            Set<RequestDTO> requestDTOS = requestSet.stream().map(RequestMapper::map).collect(Collectors.toSet());
+            Set<RequestDTO> requestDTOS = requestSet.stream().map(requestMapper::map).collect(Collectors.toSet());
             AuthorityMapper authorityMapper = new  AuthorityMapper();
             return EmployeeDTO.Builder.EmloyeeBuilderWith()
                     .id(employee.getId())
@@ -56,10 +56,11 @@ public class EmployeeMapper {
 
     public Employee convertEntity (EmployeeDTO employeeDTO)
             {
-
+                AuthorityMapper authorityMapper = new  AuthorityMapper();
+                DepartmentMapper departmentMapper = new DepartmentMapper();
                 Employee employee = new Employee();
                 employee.setEmployeeNo(employeeDTO.getEmployeeNo());
-                employee.setAuthority(AuthorityMapper.convertEntitiy(employeeDTO.getAuthorityListDTO()));
+                employee.setAuthority(authorityMapper.convertEntitiy(employeeDTO.getAuthorityListDTO()));
                 employee.setGroupNo(employeeDTO.getGroupNo());
                 employee.setDepartment(departmentMapper.convertEntity(employeeDTO.getDepartmentDTO()));
                 employee.setIdentityNo(employeeDTO.getIdentityNo());

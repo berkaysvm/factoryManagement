@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface EmployeeService {
 
-    String save(EmployeeDTO employeeDTO);
+    EmployeeDTO save(EmployeeDTO employeeDTO);
     EmployeeDTO getById(long id);
     String delete(long id);
     List<EmployeeDTO> gelAll();

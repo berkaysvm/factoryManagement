@@ -12,11 +12,13 @@ import java.util.stream.Collectors;
 @Component
 public class AuthorityMapper {
 
+
+
     public  AuthorityListDTO map(AuthorityList authorityList)
     {
-
+        EmployeeMapper employeeMapper = new EmployeeMapper();
         Set<Employee> employees = authorityList.getEmployees();
-        Set<EmployeeDTO> employeeDTOS = employees.stream().map(EmployeeMapper::map).collect(Collectors.toSet());
+        Set<EmployeeDTO> employeeDTOS = employees.stream().map(employeeMapper::map).collect(Collectors.toSet());
 
         return AuthorityListDTO.Builder.AuthorityBuilderWith()
                 .id(authorityList.getId())
@@ -25,7 +27,7 @@ public class AuthorityMapper {
                 .build();
     }
 
-    public static AuthorityList convertEntitiy(AuthorityListDTO authorityListDTO)
+    public AuthorityList convertEntitiy(AuthorityListDTO authorityListDTO)
     {
         AuthorityList authorityList =new AuthorityList();
         authorityList.setId(authorityListDTO.getId());

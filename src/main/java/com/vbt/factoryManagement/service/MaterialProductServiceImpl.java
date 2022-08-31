@@ -3,9 +3,10 @@ package com.vbt.factoryManagement.service;
 import com.vbt.factoryManagement.dto.MaterialProductDTO;
 import com.vbt.factoryManagement.mapper.MaterialProductMapper;
 import com.vbt.factoryManagement.repository.MaterialProductRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class MaterialProductServiceImpl implements MaterialProductService{
 
     MaterialProductRepository materialProductRepository;

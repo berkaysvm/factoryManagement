@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class RequestMapper {
 
     EmployeeMapper employeeMapper = new EmployeeMapper();
-    public static RequestDTO map(Request request)
+    public RequestDTO map(Request request)
     {
         return RequestDTO.Builder.RequestDTOBuilderWith()
                 .id(request.getId())
@@ -17,7 +17,7 @@ public class RequestMapper {
                 .explanation(request.getExplanation())
                 .subject(request.getSubject())
                 .requestid(request.getRequestid())
-                .employeeDTO(EmployeeMapper.map(request.getEmployee())).build();
+                .employeeDTO(employeeMapper.map(request.getEmployee())).build();
     }
     public Request convertEntity(RequestDTO requestDTO)
     {
