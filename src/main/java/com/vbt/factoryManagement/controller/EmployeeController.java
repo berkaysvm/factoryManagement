@@ -22,19 +22,19 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @PostMapping("/save")
+    @PostMapping("/save/")
     public EmployeeDTO save(@RequestBody EmployeeDTO employeeDTO)
     {
         return employeeService.save(employeeDTO);
     }
 
-    @GetMapping("/getById")
+    @GetMapping("/getById/")
     public EmployeeDTO getById(@RequestParam Long id)
     {
         return employeeService.getById(id);
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/")
     public String delete(@RequestParam Long id)
     {
         return employeeService.delete(id);

@@ -20,7 +20,7 @@ public class CustomerServiceİmpl implements CustomerService{
     }
 
     @Override
-    public CustomerDTO save(CustomerDTO customerDTO) {
+    public CustomerDTO save(CustomerDTO customerDTO) {   // Email kaydetmiyor
         customerRepository.save(customerMapper.convertEntity(customerDTO));
         return customerDTO;
     }

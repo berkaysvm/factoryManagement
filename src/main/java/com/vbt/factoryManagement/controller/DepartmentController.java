@@ -19,19 +19,19 @@ public class DepartmentController {
         this.departmentService = departmentService;
     }
 
-    @PostMapping("/save")
+    @PostMapping("/save/")
     public DepartmentDTO save(@RequestBody DepartmentDTO departmentDTO)
     {
         return departmentService.save(departmentDTO);
     }
 
-    @GetMapping("/getById")
+    @GetMapping("/getById/")
     public DepartmentDTO getById(@RequestParam int id)
     {
         return departmentService.getbyid(id);
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/")
     public void delete(@RequestParam int id)
     {
         departmentService.delete(id);

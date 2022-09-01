@@ -24,8 +24,8 @@ public class AuthorityServiceImpl implements AuthorityService {
     }
 
     @Override
-    public String save(AuthorityListDTO authorityName) {
-        authorityRepository.save(authorityMapper.convertEntitiy(authorityName));
+    public String save(AuthorityListDTO authorityListDTO) {
+        authorityRepository.save(authorityMapper.convertEntitiy(authorityListDTO));
         return "kayıt başarılı";
     }
 }

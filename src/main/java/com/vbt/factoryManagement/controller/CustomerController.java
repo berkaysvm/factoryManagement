@@ -16,19 +16,19 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @PostMapping("/save")
+    @PostMapping("/save/")  // Not save Email
     public CustomerDTO save(@RequestBody CustomerDTO customerDTO)
     {
         return customerService.save(customerDTO);
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/")
     public void delete(@RequestParam Long id)
     {
         customerService.delete(id);
     }
 
-    @GetMapping("/getCustomer")
+    @GetMapping("/getCustomer/")
     public CustomerDTO getCustomer(@RequestParam Long id)
     {
         return customerService.getCustomer(id);

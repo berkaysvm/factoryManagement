@@ -16,13 +16,13 @@ public class AuthorityController {
         this.authorityService = authorityService;
     }
 
-    @PostMapping("/save")
+    @PostMapping("/save/")
     public String save(@RequestBody AuthorityListDTO authorityListDTO)
     {
         return authorityService.save(authorityListDTO);
     }
 
-    @GetMapping("/get")
+    @GetMapping("/get") //not getting
     public AuthorityListDTO getAuthority(int id)
     {
         return authorityService.getAuthority(id);

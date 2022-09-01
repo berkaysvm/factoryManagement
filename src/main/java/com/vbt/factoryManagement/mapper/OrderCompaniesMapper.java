@@ -15,12 +15,13 @@ import java.util.stream.Collectors;
 public class OrderCompaniesMapper {
     public OrderCompaniesDTO map(OrderCompanies orderCompanies)
     {
+        MaterialOrderMapper materialOrderMapper = new MaterialOrderMapper();
         OrderMaterialRelationalMapper orderMaterialRelationalMapper = new OrderMaterialRelationalMapper();
         Set<OrderMaterialRelational> orderCompanies1 = orderCompanies.getOrderMaterials();
         Set<OrderMaterialRelationalDTO> orderMaterialRelationalDTOS = orderCompanies1.stream().map(orderMaterialRelationalMapper::map).collect(Collectors.toSet());
 
         Set<MaterialOrder> materialOrders = orderCompanies.getMaterialOrders();
-        Set<MaterialOrderDTO> materialOrderDTOS = materialOrders.stream().map(MaterialOrderMapper::map).collect(Collectors.toSet());
+        Set<MaterialOrderDTO> materialOrderDTOS = materialOrders.stream().map(materialOrderMapper::map).collect(Collectors.toSet());
         return OrderCompaniesDTO.Builder.OrderCompaniesDTOBuilderWith()
                 .id(orderCompanies.getId())
                 .orderCompaniesName(orderCompanies.getOrderCompaniesName())

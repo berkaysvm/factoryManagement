@@ -11,10 +11,11 @@ import java.util.List;
 
 @Component
 public class MaterialOrderMapper {
-    static OrderCompaniesMapper orderCompaniesMapper = new OrderCompaniesMapper();
-    static MaterialMapper materialMapper = new MaterialMapper();
-    public static MaterialOrderDTO map(MaterialOrder materialOrder)
+
+    public MaterialOrderDTO map(MaterialOrder materialOrder)
     {
+        OrderCompaniesMapper orderCompaniesMapper = new OrderCompaniesMapper();
+        MaterialMapper materialMapper = new MaterialMapper();
         return MaterialOrderDTO.Builder.MaterialOrderDTOBuilderWith()
                 .id(materialOrder.getId())
                 .orderNo(materialOrder.getOrderNo())

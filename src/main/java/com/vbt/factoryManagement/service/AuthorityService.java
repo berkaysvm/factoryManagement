@@ -9,5 +9,5 @@ import java.util.List;
 public interface AuthorityService {
     AuthorityListDTO getAuthority(int id);
 
-    String save(AuthorityListDTO authorityName);
+    String save(AuthorityListDTO authorityListDTO);
 }
