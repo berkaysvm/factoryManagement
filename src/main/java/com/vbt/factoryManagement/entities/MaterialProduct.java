@@ -19,7 +19,8 @@ public class MaterialProduct {
     @ManyToOne
     @JoinColumn(name = "material_id")
     private Material material;
-    @ManyToOne(targetEntity = com.vbt.factoryManagement.entities.Product.class)
+
+    @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 

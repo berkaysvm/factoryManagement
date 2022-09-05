@@ -18,7 +18,7 @@ public class MaterialOrder {
 
     private String orderNo;
 
-    @OneToOne(cascade = CascadeType.PERSIST,targetEntity = com.vbt.factoryManagement.entities.Material.class)
+    @OneToOne(cascade = CascadeType.MERGE,targetEntity = com.vbt.factoryManagement.entities.Material.class)
     @JoinColumn(name = "material_id")
     private Material material;
 

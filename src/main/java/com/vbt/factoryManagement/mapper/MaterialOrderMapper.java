@@ -4,6 +4,8 @@ import com.vbt.factoryManagement.dto.EmployeeDTO;
 import com.vbt.factoryManagement.dto.MaterialOrderDTO;
 import com.vbt.factoryManagement.entities.Employee;
 import com.vbt.factoryManagement.entities.MaterialOrder;
+import com.vbt.factoryManagement.repository.MaterialOrderRepository;
+import com.vbt.factoryManagement.repository.MaterialRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.List;
 
 @Component
 public class MaterialOrderMapper {
+
 
     public MaterialOrderDTO map(MaterialOrder materialOrder)
     {
@@ -50,13 +53,18 @@ public class MaterialOrderMapper {
     }
     public MaterialOrder convertEntity2 ( MaterialOrderDTO materialOrderDTO)
     {
+//        MaterialRepository materialRepository = new MaterialRepository();
         MaterialMapper materialMapper = new MaterialMapper();
         OrderCompaniesMapper orderCompaniesMapper= new OrderCompaniesMapper();
         MaterialOrder materialOrder = new MaterialOrder();
-        materialOrder.setId(materialOrder.getId());
-        materialOrder.setMaterial( materialMapper.convertEntity2(materialOrderDTO.getMaterial()));
-        materialOrder.setOrderCompanies(orderCompaniesMapper.convertEntity(materialOrderDTO.getOrderCompanies()));
+
+        materialOrder.setId(materialOrderDTO.getId());
         materialOrder.setOrderNo(materialOrderDTO.getOrderNo());
+        materialOrder.setMaterial(materialMapper.convertEntity2(materialOrderDTO.getMaterial()));
+        //materialOrder.setMaterial(materialRepository.findById(materialOrderDTO.getMaterial().getId()));
+
+        materialOrder.setOrderCompanies(orderCompaniesMapper.convertEntity(materialOrderDTO.getOrderCompanies()));
+
         return materialOrder;
 
     }

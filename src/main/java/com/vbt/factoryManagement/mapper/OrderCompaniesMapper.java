@@ -25,7 +25,7 @@ public class OrderCompaniesMapper {
         return OrderCompaniesDTO.Builder.OrderCompaniesDTOBuilderWith()
                 .id(orderCompanies.getId())
                 .orderCompaniesName(orderCompanies.getOrderCompaniesName())
-                //.orderMaterials(orderMaterialRelationalDTOS)
+                .orderMaterials(orderMaterialRelationalDTOS)
                 .materialOrder(materialOrderDTOS)
                 .build();
     }
@@ -33,8 +33,9 @@ public class OrderCompaniesMapper {
     public OrderCompanies convertEntity(OrderCompaniesDTO orderCompaniesDTO)
     {
         OrderCompanies orderCompanies = new OrderCompanies();
-        orderCompanies.setOrderCompaniesName(orderCompaniesDTO.getOrderCompaniesName());
         orderCompanies.setId(orderCompaniesDTO.getId());
+        orderCompanies.setOrderCompaniesName(orderCompaniesDTO.getOrderCompaniesName());
+
         return orderCompanies;
 
     }

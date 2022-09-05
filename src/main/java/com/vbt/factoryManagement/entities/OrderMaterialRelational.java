@@ -15,10 +15,10 @@ public class OrderMaterialRelational {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "orderCompanies_id" )
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "orderCompanies_id")
     OrderCompanies orderCompanies;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE,targetEntity = com.vbt.factoryManagement.entities.Material.class,fetch = FetchType.LAZY)
     @JoinColumn(name = "material_id")
     Material material;
 }

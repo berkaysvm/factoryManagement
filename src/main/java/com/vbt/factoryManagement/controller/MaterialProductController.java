@@ -13,24 +13,24 @@ import java.util.List;
 public class MaterialProductController {
     private final MaterialProductService materialProductService;
 
-    //Bug
+    //Bug 05.09.2022
 
     @Autowired
     public MaterialProductController(MaterialProductService materialProductService) {
         this.materialProductService = materialProductService;
     }
-    @PostMapping("/save")
+    @PostMapping("/save/")
     public String save(@RequestBody MaterialProductDTO materialProductDTO)
     {
         return materialProductService.save(materialProductDTO);
     }
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/")
     public String delete(@RequestParam int id)
     {
         return materialProductService.delete(id);
     }
 
-    @GetMapping("/getById")
+    @GetMapping("/getById/")
     public MaterialProductDTO getById(@RequestParam int id)
     {
         return materialProductService.getById(id);

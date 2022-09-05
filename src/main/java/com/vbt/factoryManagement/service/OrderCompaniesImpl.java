@@ -27,7 +27,8 @@ public class OrderCompaniesImpl implements OrderCompaniesService{
     @Override
     public String deleteById(int id) {
         orderCompaniesRepository.deleteById(id);
-        if (orderCompaniesRepository.getReferenceById(id) == null) {return "delete is complete";}
+        if (orderCompaniesRepository.getReferenceById(id) == null)
+        {return "delete is complete";}
 
         else
             return "delete is not complete";

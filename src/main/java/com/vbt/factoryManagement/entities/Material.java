@@ -22,9 +22,9 @@ public class Material {
     private Long materialStock;
     private int materialCost;
     private String image;
-    @OneToMany(mappedBy = "material",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "material",fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     private Set<MaterialProduct> materialProducts;
-    @OneToMany(mappedBy = "material",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "material",fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     private Set<OrderMaterialRelational> orderMaterials;
 
 

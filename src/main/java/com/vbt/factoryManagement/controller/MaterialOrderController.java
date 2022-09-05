@@ -24,13 +24,23 @@ public class MaterialOrderController {
     public String save(@RequestBody MaterialOrderDTO materialOrderDTO)
     {
         //PersistentObjectException: detached entity passed to persist: com.vbt.factoryManagement.entities.Material
+        // 1. yol Merge kullanma
+        //2. yol gönderilen id ile find yap gelen veri varsa bunu yolla
+        //no problem
          return materialOrderService.save(materialOrderDTO);
     }
 
     @GetMapping("/getById/")
+    // stackoverflow null
+    //
     public MaterialOrderDTO getById(@RequestParam int id)
     {
         return materialOrderService.getById(id);
+    }
+    @GetMapping("/getByOrderNo/")
+    public MaterialOrderDTO getReferenceByOrderNo(@RequestParam String orderNo)
+    {
+        return materialOrderService.getReferenceByOrderNo(orderNo);
     }
 
     @DeleteMapping("/delete/") //No problem
@@ -40,4 +50,13 @@ public class MaterialOrderController {
         return "delete is complete";
 
     }
+
+
+//    @DeleteMapping("/deleteOrderNo/") //No problem
+//    public String delete(@RequestParam String orderNo)
+//    {
+//        materialOrderService.delete(id);
+//        return "delete is complete";
+//
+//    }
 }

@@ -9,21 +9,24 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderMaterialRelationalMapper {
 
-     static OrderCompaniesMapper orderCompaniesMappers = new OrderCompaniesMapper();
-     static MaterialMapper materialMapper = new MaterialMapper();
+
     public OrderMaterialRelationalDTO map(OrderMaterialRelational orderMaterialRelational) {
+        OrderCompaniesMapper orderCompaniesMappers = new OrderCompaniesMapper();
+        MaterialMapper materialMapper = new MaterialMapper();
         return OrderMaterialRelationalDTO.Builder.
                 OrderMaterialRelationalDTOBuilderWith()
                 .id(orderMaterialRelational.getId())
                 .orderCompanies( orderCompaniesMappers.map(orderMaterialRelational.getOrderCompanies()))
-                .material( materialMapper.map(orderMaterialRelational.getMaterial())).build();
+                .material( materialMapper.map(orderMaterialRelational.getMaterial()))
+                .build();
 
     }
     public OrderMaterialRelational convertEntity(OrderMaterialRelationalDTO orderMaterialRelationalDTO)
     {
         MaterialMapper materialMapper = new MaterialMapper();
-
+        OrderCompaniesMapper orderCompaniesMappers = new OrderCompaniesMapper();
         OrderMaterialRelational orderMaterialRelational = new OrderMaterialRelational();
+        orderMaterialRelational.setOrderCompanies(orderCompaniesMappers.convertEntity(orderMaterialRelationalDTO.getOrderCompanies()));
         orderMaterialRelational.setMaterial( materialMapper.convertEntity(orderMaterialRelationalDTO.getMaterial()));
         orderMaterialRelational.setId(orderMaterialRelationalDTO.getId());
         return orderMaterialRelational;

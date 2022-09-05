@@ -10,7 +10,11 @@ public interface MaterialOrderService
 {
     String save (MaterialOrderDTO materialOrderDTO);
     String delete(int id);
+
+    MaterialOrderDTO getReferenceByOrderNo(String orderNo);
+
     MaterialOrderDTO getById(int id);
+
     List<MaterialOrderDTO> getAll();
 
 }

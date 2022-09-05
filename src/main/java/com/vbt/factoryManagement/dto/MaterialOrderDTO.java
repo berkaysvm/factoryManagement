@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class MaterialOrderDTO {
 
     private int id;
-    private String OrderNo;
+    private String orderNo;
     private MaterialDTO material;
     private OrderCompaniesDTO orderCompanies;
 
@@ -18,7 +18,7 @@ public class MaterialOrderDTO {
     public MaterialOrderDTO(Builder builder){
 
         this.id = builder.id;
-        this.OrderNo = builder.orderNo;
+        this.orderNo = builder.orderNo;
         this.material = builder.material;
         this.orderCompanies = builder.orderCompanies;
     }
