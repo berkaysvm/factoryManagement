@@ -22,9 +22,8 @@ public class EmployeeDTO {
     private String phoneNumber;
     private String adress;
 
-//    public EmployeeDTO(String firstname, String lastname, String eMail, String phoneNumber, String adress) {
-//        super(firstname, lastname, eMail, phoneNumber, adress);
-//    }
+    public EmployeeDTO() {
+    }
     public EmployeeDTO(Builder builder)
     {
 

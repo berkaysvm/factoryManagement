@@ -1,11 +1,13 @@
 package com.vbt.factoryManagement.dto;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Getter
+@NoArgsConstructor
 public class ProductDTO {
 
     private int id;

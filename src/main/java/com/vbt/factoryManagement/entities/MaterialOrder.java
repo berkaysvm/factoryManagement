@@ -15,13 +15,14 @@ public class MaterialOrder {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String orderNo;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST,targetEntity = com.vbt.factoryManagement.entities.Material.class)
     @JoinColumn(name = "material_id")
     private Material material;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.MERGE,targetEntity = com.vbt.factoryManagement.entities.OrderCompanies.class)
     @JoinColumn(name = "orderCompanies_id")
     private OrderCompanies orderCompanies;
 

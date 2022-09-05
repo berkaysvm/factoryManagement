@@ -14,9 +14,10 @@ import java.util.stream.Collectors;
 public class MaterialMapper {
     public MaterialDTO map(Material material)
     {
+        MaterialProductMapper materialProductMapper = new MaterialProductMapper();
         OrderMaterialRelationalMapper orderMaterialRelationalMapper = new OrderMaterialRelationalMapper();
         Set<MaterialProduct> materialProducts = material.getMaterialProducts();
-        Set<MaterialProductDTO> materialProductDTOS = materialProducts.stream().map(MaterialProductMapper::map).collect(Collectors.toSet());
+        Set<MaterialProductDTO> materialProductDTOS = materialProducts.stream().map(materialProductMapper::map).collect(Collectors.toSet());
 
         Set<OrderMaterialRelational> orderMaterialRelationals = material.getOrderMaterials();
         Set<OrderMaterialRelationalDTO> orderMaterialRelationalDTOS = orderMaterialRelationals.stream().map(orderMaterialRelationalMapper::map).collect(Collectors.toSet());
@@ -47,8 +48,20 @@ public class MaterialMapper {
         material.setImage(materialDTO.getImage());
         return material;
     }
+    public Material convertEntity2(MaterialDTO materialDTO)
+    {
+        Material material = new Material();
+        material.setMaterialNo(materialDTO.getMaterialNo());
+        material.setId(materialDTO.getId());
+        material.setMaterialColour(materialDTO.getMaterialColour());
+        material.setMaterialCost(materialDTO.getMaterialCost());
+        material.setMaterialStock(materialDTO.getMaterialStock());
+        material.setImage(materialDTO.getImage());
+        return material;
+    }
 
-    public Material convertEntitiyNo(MaterialDTO materialDTO)
+
+    public Material convertEntityNo(MaterialDTO materialDTO)
     {
         Material material = new Material();
         material.setMaterialNo(materialDTO.getMaterialNo());

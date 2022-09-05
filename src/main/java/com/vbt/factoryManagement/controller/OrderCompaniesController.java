@@ -9,22 +9,22 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/orderCompanies")
 public class OrderCompaniesController {
-    OrderCompaniesService orderCompaniesService;
+    private final OrderCompaniesService orderCompaniesService;
     @Autowired
     public OrderCompaniesController(OrderCompaniesService orderCompaniesService) {
         this.orderCompaniesService = orderCompaniesService;
     }
-    @PostMapping("/save")
+    @PostMapping("/save/")
     public OrderCompaniesDTO save(@RequestBody OrderCompaniesDTO orderCompaniesDTO)
     {
         return orderCompaniesService.save(orderCompaniesDTO);
     }
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/")
     public String delete(@RequestParam int id)
     {
         return orderCompaniesService.deleteById(id);
     }
-    @GetMapping("/getById")
+    @GetMapping("/getById/")
     public OrderCompaniesDTO getById(@RequestParam int id)
     {
         return orderCompaniesService.getById(id);

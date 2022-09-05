@@ -9,23 +9,25 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/material")
 public class MaterialController {
-    MaterialService materialService;
 
+    //MaterialProductList bug
+    private final MaterialService materialService;
+    //No problem
     @Autowired
     public MaterialController(MaterialService materialService) {
         this.materialService = materialService;
     }
-    @PostMapping("/save")
+    @PostMapping("/save/")
     public MaterialDTO save(@RequestBody MaterialDTO materialDTO)
     {
         return materialService.save(materialDTO);
     }
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/")
     public String deleteById(@RequestParam Long id)
     {
         return materialService.deleteById(id);
     }
-    @GetMapping("/getAll")
+    @GetMapping("/getAll/")
     public MaterialDTO getById(@RequestParam Long id)
     {
         return materialService.getById(id);

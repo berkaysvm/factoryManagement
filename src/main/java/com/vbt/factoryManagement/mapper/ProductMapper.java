@@ -14,24 +14,25 @@ public class ProductMapper {
 
     public ProductDTO map(Product product)
     {
+        MaterialProductMapper materialProductMapper = new MaterialProductMapper();
 
-        Set<MaterialProduct> materialProducts = product.getMaterialProducts();
-        Set<MaterialProductDTO> materialProductDTOS = materialProducts.stream().map(MaterialProductMapper::map).collect(Collectors.toSet());
+        //Set<MaterialProduct> materialProducts = product.getMaterialProducts();
+        //Set<MaterialProductDTO> materialProductDTOS = materialProducts.stream().map(materialProductMapper::map).collect(Collectors.toSet());
 
         return new ProductDTO.Builder().ProductDTOBuilderWith()
-                .id(product.getId())
+
                 .productName(product.getProductName())
                 .productColour(product.getProductColour())
                 .productCost(product.getProductCost())
                 .productStock(product.getProductStock())
-                .materialProductsDto(materialProductDTOS).build();
+               // .materialProductsDto(materialProductDTOS)
+                .build();
     }
     public Product convertEntity (ProductDTO productDTO)
     {
-        Set<MaterialProductDTO> materialProductsDto = productDTO.getMaterialProductsDto();
-        Set<MaterialProduct> materialProduct = materialProductsDto.stream().map(MaterialProductMapper::convertEntity).collect(Collectors.toSet());
+        //Set<MaterialProductDTO> materialProductsDto = productDTO.getMaterialProductsDto();
+        //Set<MaterialProduct> materialProduct = materialProductsDto.stream().map(MaterialProductMapper::convertEntity).collect(Collectors.toSet());
         Product product = new Product();
-        product.setId(productDTO.getId());
         product.setProductName(productDTO.getProductName());
         product.setProductColour(productDTO.getProductColour());
         product.setProductStock(productDTO.getProductStock());

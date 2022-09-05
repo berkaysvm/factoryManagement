@@ -21,9 +21,10 @@ public class RequestMapper {
     }
     public Request convertEntity(RequestDTO requestDTO)
     {
+        EmployeeMapper employeeMapper = new EmployeeMapper();
         Request request = new Request();
         request.setRequestid(requestDTO.getRequestid());
-        request.setEmployee(request.getEmployee());
+        request.setEmployee(employeeMapper.convertEntity(requestDTO.getEmployeeDTO()));
         request.setSubject(requestDTO.getSubject());
         request.setDate(requestDTO.getDate());
         request.setExplanation(requestDTO.getExplanation());

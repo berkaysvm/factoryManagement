@@ -15,7 +15,7 @@ public class MaterialDTO {
     private Long materialStock;
     private int materialCost;
     private String image;
-    private Set<MaterialProductDTO> materialProducts;
+    //private Set<MaterialProductDTO> materialProducts;
     private Set<OrderMaterialRelationalDTO> orderMaterials;
 
     public MaterialDTO(){}
@@ -28,7 +28,7 @@ public class MaterialDTO {
         this.materialStock = builder.materialStock;
         this.materialCost = builder.materialCost;
         this.image = builder.image;
-        this.materialProducts = builder.materialProducts;
+        //this.materialProducts = builder.materialProducts;
         this.orderMaterials = builder.orderMaterials;
     }
 

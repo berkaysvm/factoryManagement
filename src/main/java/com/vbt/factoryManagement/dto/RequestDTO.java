@@ -1,11 +1,13 @@
 package com.vbt.factoryManagement.dto;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Getter
+@NoArgsConstructor
 public class RequestDTO {
 
     private int id;

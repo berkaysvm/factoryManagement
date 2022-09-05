@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 public class OrderMaterialRelationalController {
-    OrderMaterialRelationalService orderMaterialRelationalService;
+    private final OrderMaterialRelationalService orderMaterialRelationalService;
     @Autowired
     public OrderMaterialRelationalController(OrderMaterialRelationalService orderMaterialRelationalService) {
         this.orderMaterialRelationalService = orderMaterialRelationalService;

@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/materialProductController")
+@RequestMapping("/materialProduct")
 public class MaterialProductController {
-    MaterialProductService materialProductService;
+    private final MaterialProductService materialProductService;
+
+    //Bug
 
     @Autowired
     public MaterialProductController(MaterialProductService materialProductService) {

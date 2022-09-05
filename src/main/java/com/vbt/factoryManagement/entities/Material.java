@@ -14,7 +14,7 @@ import java.util.Set;
 @Setter
 public class Material {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
     private String materialNo;
@@ -22,9 +22,9 @@ public class Material {
     private Long materialStock;
     private int materialCost;
     private String image;
-    @OneToMany(mappedBy = "material")
+    @OneToMany(mappedBy = "material",fetch = FetchType.LAZY)
     private Set<MaterialProduct> materialProducts;
-    @OneToMany(mappedBy = "material")
+    @OneToMany(mappedBy = "material",fetch = FetchType.LAZY)
     private Set<OrderMaterialRelational> orderMaterials;
 
 

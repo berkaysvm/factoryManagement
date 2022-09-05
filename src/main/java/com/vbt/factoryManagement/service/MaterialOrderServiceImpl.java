@@ -20,7 +20,7 @@ public class MaterialOrderServiceImpl implements MaterialOrderService{
 
     @Override
     public String save(MaterialOrderDTO materialOrderDTO) {
-        materialOrderRepository.save(materialOrderMapper.convertEntity(materialOrderDTO));
+        materialOrderRepository.save(materialOrderMapper.convertEntity2(materialOrderDTO));
         return "Save Complete";
     }
 

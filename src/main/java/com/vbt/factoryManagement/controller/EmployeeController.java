@@ -14,6 +14,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
+
+    ///Bug
     private final EmployeeService employeeService;
 
     @Autowired
@@ -23,7 +25,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/save/")
-    public EmployeeDTO save(@RequestBody EmployeeDTO employeeDTO)
+    public EmployeeDTO save(@RequestBody EmployeeDTO employeeDTO)  // Not save Email
     {
         return employeeService.save(employeeDTO);
     }

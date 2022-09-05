@@ -40,9 +40,23 @@ public class MaterialOrderMapper {
     public MaterialOrder convertEntity ( MaterialOrderDTO materialOrderDTO)
     {
         MaterialMapper materialMapper = new MaterialMapper();
+        OrderCompaniesMapper orderCompaniesMapper= new OrderCompaniesMapper();
         MaterialOrder materialOrder = new MaterialOrder();
-        materialOrder.setMaterial( materialMapper.convertEntitiyNo(materialOrderDTO.getMaterial()));
-        materialOrder.setOrderCompanies(materialOrder.getOrderCompanies());
+        materialOrder.setMaterial( materialMapper.convertEntity(materialOrderDTO.getMaterial()));
+        materialOrder.setOrderCompanies(orderCompaniesMapper.convertEntity(materialOrderDTO.getOrderCompanies()));
+        materialOrder.setOrderNo(materialOrderDTO.getOrderNo());
+        return materialOrder;
+
+    }
+    public MaterialOrder convertEntity2 ( MaterialOrderDTO materialOrderDTO)
+    {
+        MaterialMapper materialMapper = new MaterialMapper();
+        OrderCompaniesMapper orderCompaniesMapper= new OrderCompaniesMapper();
+        MaterialOrder materialOrder = new MaterialOrder();
+        materialOrder.setId(materialOrder.getId());
+        materialOrder.setMaterial( materialMapper.convertEntity2(materialOrderDTO.getMaterial()));
+        materialOrder.setOrderCompanies(orderCompaniesMapper.convertEntity(materialOrderDTO.getOrderCompanies()));
+        materialOrder.setOrderNo(materialOrderDTO.getOrderNo());
         return materialOrder;
 
     }

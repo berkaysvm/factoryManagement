@@ -21,6 +21,6 @@ public class Product {
     private String productColour;
     private int productStock;
     private int productCost;
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product",fetch = FetchType.LAZY)
     private Set<MaterialProduct> materialProducts;
 }

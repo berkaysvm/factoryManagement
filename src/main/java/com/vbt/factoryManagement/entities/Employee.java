@@ -28,7 +28,7 @@ public class Employee extends BasicKnowledge {
     @OneToMany(mappedBy = "employee")
     private Set<Request> requests;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = com.vbt.factoryManagement.entities.Department.class, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "department_id")
     private Department department;
 

@@ -10,25 +10,26 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/product")
 public class ProductController {
 
-    ProductService productService;
+    private final ProductService productService;
     @Autowired
     public ProductController(ProductService productService) {
         this.productService = productService;
     }
-    @PostMapping("/save")
-    public ProductDTO save(ProductDTO productDTO)
+    @PostMapping("/save/")
+    public ProductDTO save(@RequestBody ProductDTO productDTO)
     {
-        return productService.save(productDTO);
+        productService.save(productDTO);
+        return null;
     }
 
-    @GetMapping("/getById")
-    public ProductDTO getById(int id)
+    @GetMapping("/getById/")
+    public ProductDTO getById(@RequestParam int id)
     {
         return productService.getById(id);
     }
 
-    @DeleteMapping("/delete")
-    public String delete(int id)
+    @DeleteMapping("/delete/")
+    public String delete(@RequestParam int id)
     {
         return productService.deleteById(id);
     }

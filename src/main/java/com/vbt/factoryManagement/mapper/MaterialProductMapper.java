@@ -5,6 +5,7 @@ import com.vbt.factoryManagement.dto.MaterialProductDTO;
 import com.vbt.factoryManagement.entities.Material;
 import com.vbt.factoryManagement.entities.MaterialOrder;
 import com.vbt.factoryManagement.entities.MaterialProduct;
+import com.vbt.factoryManagement.entities.Product;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.List;
 @Component
 public class MaterialProductMapper {
 
-    public static MaterialProductDTO map(MaterialProduct materialProduct)
+    public MaterialProductDTO map(MaterialProduct materialProduct)
     {
         MaterialMapper materialMapper = new MaterialMapper();
         ProductMapper productMapper = new ProductMapper();
@@ -39,10 +40,12 @@ public class MaterialProductMapper {
     public static MaterialProduct convertEntity(MaterialProductDTO materialProductDTO)
     {
         MaterialProduct materialProduct = new MaterialProduct();
-        materialProduct.setId(materialProduct.getId());
-        materialProduct.setQuantity(materialProduct.getQuantity());
-        materialProduct.setMaterial(materialProduct.getMaterial());
-        materialProduct.setProduct(materialProduct.getProduct());
+        MaterialMapper materialMapper = new MaterialMapper();
+        ProductMapper productMapper = new ProductMapper();
+        materialProduct.setId(materialProductDTO.getId());
+        materialProduct.setQuantity(materialProductDTO.getQuantity());
+        materialProduct.setMaterial(materialMapper.convertEntity2(materialProductDTO.getMaterial()));
+        materialProduct.setProduct(productMapper.convertEntity(materialProductDTO.getProduct()));
         return materialProduct;
     }
 }
