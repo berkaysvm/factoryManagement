@@ -1,6 +1,7 @@
 package com.vbt.factoryManagement.service;
 
 import com.vbt.factoryManagement.dto.OrderCompaniesDTO;
+import com.vbt.factoryManagement.entities.OrderCompanies;
 import com.vbt.factoryManagement.mapper.OrderCompaniesMapper;
 import com.vbt.factoryManagement.repository.OrderCompaniesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,11 @@ public class OrderCompaniesImpl implements OrderCompaniesService{
     {
         this.orderCompaniesMapper = orderCompaniesMapper;
         this.orderCompaniesRepository = orderCompaniesRepository;
+    }
+    @Override
+    public OrderCompanies mapp(int id)
+    {
+        return orderCompaniesRepository.getReferenceById(id);
     }
     @Override
     public OrderCompaniesDTO save(OrderCompaniesDTO orderCompaniesDTO) {
@@ -36,6 +42,6 @@ public class OrderCompaniesImpl implements OrderCompaniesService{
 
     @Override
     public OrderCompaniesDTO getById(int id) {
-        return orderCompaniesMapper.map(orderCompaniesRepository.getReferenceById(id));
+        return orderCompaniesMapper.map2(orderCompaniesRepository.getReferenceById(id));
     }
 }

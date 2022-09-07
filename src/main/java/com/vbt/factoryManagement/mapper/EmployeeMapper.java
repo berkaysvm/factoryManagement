@@ -1,11 +1,8 @@
 package com.vbt.factoryManagement.mapper;
 
 import com.vbt.factoryManagement.dto.EmployeeDTO;
-import com.vbt.factoryManagement.dto.MaterialProductDTO;
 import com.vbt.factoryManagement.dto.RequestDTO;
 import com.vbt.factoryManagement.entities.Employee;
-import com.vbt.factoryManagement.entities.MaterialProduct;
-import com.vbt.factoryManagement.entities.Product;
 import com.vbt.factoryManagement.entities.Request;
 import org.springframework.stereotype.Component;
 
@@ -18,7 +15,7 @@ import java.util.stream.Collectors;
 public class EmployeeMapper {
 
 
-    public List<EmployeeDTO> maplist(List<Employee> employeeList)
+    public List<EmployeeDTO> plist(List<Employee> employeeList)
     {
 
         List<EmployeeDTO> returnList =new ArrayList<>();
@@ -37,7 +34,8 @@ public class EmployeeMapper {
 
             RequestMapper requestMapper = new RequestMapper();
             Set<Request> requestSet = employee.getRequests();
-            Set<RequestDTO> requestDTOS = requestSet.stream().map(requestMapper::map).collect(Collectors.toSet());
+            Set<RequestDTO> requestDTOS = requestSet.stream().map(requestMapper::map2).collect(Collectors.toSet());
+
             AuthorityMapper authorityMapper = new  AuthorityMapper();
             return EmployeeDTO.Builder.EmloyeeBuilderWith()
                     .id(employee.getId())
@@ -49,7 +47,7 @@ public class EmployeeMapper {
                     .phoneNumber(employee.getPhoneNumber())
                     .groupNo(employee.getGroupNo())
                     .identitiyNo(employee.getIdentityNo())
-                    .authorityListDTO(authorityMapper.map(employee.getAuthority()))
+                    //authorityListDTO(authorityMapper.map(employee.getAuthority()))
                     .requestsDTO(requestDTOS)
                     .build();
         }
@@ -59,8 +57,9 @@ public class EmployeeMapper {
                 AuthorityMapper authorityMapper = new  AuthorityMapper();
                 DepartmentMapper departmentMapper = new DepartmentMapper();
                 Employee employee = new Employee();
+
                 employee.setEmployeeNo(employeeDTO.getEmployeeNo());
-                employee.setAuthority(authorityMapper.convertEntitiy(employeeDTO.getAuthorityListDTO()));
+                employee.setAuthority( authorityMapper.convertEntitiy(employeeDTO.getAuthorityListDTO()));
                 employee.setGroupNo(employeeDTO.getGroupNo());
                 employee.setDepartment(departmentMapper.convertEntity(employeeDTO.getDepartmentDTO()));
                 employee.setIdentityNo(employeeDTO.getIdentityNo());
@@ -71,4 +70,6 @@ public class EmployeeMapper {
                 employee.setPhoneNumber(employeeDTO.getPhoneNumber());
                return employee;
             }
+
+
 }

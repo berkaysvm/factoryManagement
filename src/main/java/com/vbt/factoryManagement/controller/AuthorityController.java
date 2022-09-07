@@ -22,8 +22,8 @@ public class AuthorityController {
         return authorityService.save(authorityListDTO);
     }
 
-    @GetMapping("/get") //not getting
-    public AuthorityListDTO getAuthority(int id)
+    @GetMapping("/get/")
+    public AuthorityListDTO getAuthority(@RequestParam long id)
     {
         return authorityService.getAuthority(id);
     }

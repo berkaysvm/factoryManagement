@@ -16,13 +16,14 @@ public class MaterialProductMapper {
 
     public MaterialProductDTO map(MaterialProduct materialProduct)
     {
-        MaterialMapper materialMapper = new MaterialMapper();
+
         ProductMapper productMapper = new ProductMapper();
         return MaterialProductDTO.Builder.MaterialProductDTOBuilderWith()
                 .id(materialProduct.getId())
-                .material(materialMapper.map(materialProduct.getMaterial()))
-                .product(productMapper.map(materialProduct.getProduct()))
-                .quantity(materialProduct.getQuantity()).build();
+                .material(materialProduct.getMaterial())
+                .product(materialProduct.getProduct())
+                .quantity(materialProduct.getQuantity())
+                .build();
     }
     public List<MaterialProductDTO> maplist(List<MaterialProduct> materialProducts)
     {
@@ -37,7 +38,7 @@ public class MaterialProductMapper {
 
         return returnList;
     }
-    public static MaterialProduct convertEntity(MaterialProductDTO materialProductDTO)
+    public MaterialProduct convertEntity(MaterialProductDTO materialProductDTO)
     {
         MaterialProduct materialProduct = new MaterialProduct();
         MaterialMapper materialMapper = new MaterialMapper();

@@ -29,7 +29,13 @@ public class OrderCompaniesMapper {
                 .materialOrder(materialOrderDTOS)
                 .build();
     }
-
+    public OrderCompaniesDTO map2(OrderCompanies orderCompanies)
+    {
+        return OrderCompaniesDTO.Builder.OrderCompaniesDTOBuilderWith()
+                .orderCompaniesName(orderCompanies.getOrderCompaniesName())
+                .id(orderCompanies.getId())
+                .build();
+    }
     public OrderCompanies convertEntity(OrderCompaniesDTO orderCompaniesDTO)
     {
         OrderCompanies orderCompanies = new OrderCompanies();

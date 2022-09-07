@@ -32,6 +32,7 @@ public class MaterialOrderServiceImpl implements MaterialOrderService{
     }
 
     @Override
+    //Nullpointerexception
     public MaterialOrderDTO getReferenceByOrderNo(String orderNo) {
         return materialOrderMapper.map(materialOrderRepository.getReferenceByOrderNo(orderNo));
     }
@@ -39,7 +40,7 @@ public class MaterialOrderServiceImpl implements MaterialOrderService{
     @Override
     public MaterialOrderDTO getById(int id) {
         MaterialOrder a = materialOrderRepository.getReferenceById(id);
-        return materialOrderMapper.map(materialOrderRepository.getReferenceById(id));
+        return materialOrderMapper.map(a);
     }
 
     @Override

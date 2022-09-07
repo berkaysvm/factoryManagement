@@ -7,7 +7,7 @@ import com.vbt.factoryManagement.entities.AuthorityList;
 import java.util.List;
 
 public interface AuthorityService {
-    AuthorityListDTO getAuthority(int id);
+    AuthorityListDTO getAuthority(long id);
 
     String save(AuthorityListDTO authorityListDTO);
 }

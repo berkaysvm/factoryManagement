@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.*;
 public class OrderMaterialRelationalController {
 
 
-    //BUG
-
-
     private final OrderMaterialRelationalService orderMaterialRelationalService;
     @Autowired
     public OrderMaterialRelationalController(OrderMaterialRelationalService orderMaterialRelationalService) {

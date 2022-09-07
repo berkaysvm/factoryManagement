@@ -3,9 +3,15 @@ package com.vbt.factoryManagement.mapper;
 import com.vbt.factoryManagement.dto.EmployeeDTO;
 import com.vbt.factoryManagement.dto.MaterialOrderDTO;
 import com.vbt.factoryManagement.entities.Employee;
+import com.vbt.factoryManagement.entities.Material;
 import com.vbt.factoryManagement.entities.MaterialOrder;
 import com.vbt.factoryManagement.repository.MaterialOrderRepository;
 import com.vbt.factoryManagement.repository.MaterialRepository;
+import com.vbt.factoryManagement.service.MaterialOrderServiceImpl;
+import com.vbt.factoryManagement.service.MaterialService;
+import com.vbt.factoryManagement.service.MaterialServiceImpl;
+import com.vbt.factoryManagement.service.OrderCompaniesImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -14,16 +20,27 @@ import java.util.List;
 @Component
 public class MaterialOrderMapper {
 
+    OrderCompaniesImpl orderCompanies;
+    MaterialServiceImpl materialServiceImpl;
+
+    @Autowired
+    public MaterialOrderMapper(OrderCompaniesImpl orderCompanies, MaterialServiceImpl materialServiceImpl)
+    {
+        this.orderCompanies = orderCompanies;
+        this.materialServiceImpl = materialServiceImpl;
+    }
+    public MaterialOrderMapper(){}
 
     public MaterialOrderDTO map(MaterialOrder materialOrder)
     {
+
         OrderCompaniesMapper orderCompaniesMapper = new OrderCompaniesMapper();
         MaterialMapper materialMapper = new MaterialMapper();
         return MaterialOrderDTO.Builder.MaterialOrderDTOBuilderWith()
                 .id(materialOrder.getId())
                 .orderNo(materialOrder.getOrderNo())
-                .orderCompanies(orderCompaniesMapper.map(materialOrder.getOrderCompanies()))
-                .material(materialMapper.map(materialOrder.getMaterial()))
+                .orderCompanies(orderCompaniesMapper.map(orderCompanies.mapp(materialOrder.getOrderCompanies().getId())))
+                .material((materialOrder.getMaterial()))
                 .build();
     }
     public List<MaterialOrderDTO> maplist(List<MaterialOrder> materialOrderList)

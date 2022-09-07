@@ -16,8 +16,8 @@ public class OrderMaterialRelationalMapper {
         return OrderMaterialRelationalDTO.Builder.
                 OrderMaterialRelationalDTOBuilderWith()
                 .id(orderMaterialRelational.getId())
-                .orderCompanies( orderCompaniesMappers.map(orderMaterialRelational.getOrderCompanies()))
-                .material( materialMapper.map(orderMaterialRelational.getMaterial()))
+                .orderCompanies(orderMaterialRelational.getOrderCompanies())
+                .material(orderMaterialRelational.getMaterial())
                 .build();
 
     }

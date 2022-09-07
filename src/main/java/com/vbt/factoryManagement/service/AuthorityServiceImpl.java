@@ -19,7 +19,7 @@ public class AuthorityServiceImpl implements AuthorityService {
     }
 
     @Override
-    public AuthorityListDTO getAuthority(int id) {
+    public AuthorityListDTO getAuthority(long id) {
         return authorityMapper.map(authorityRepository.getReferenceById(id));
     }
 
@@ -28,4 +28,6 @@ public class AuthorityServiceImpl implements AuthorityService {
         authorityRepository.save(authorityMapper.convertEntitiy(authorityListDTO));
         return "kayıt başarılı";
     }
+
+
 }

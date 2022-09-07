@@ -8,24 +8,27 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/productOrderList")
 public class ProductOrderListController {
+
+
+    // No problemm
     private final ProductOrderListService productOrderListService;
     @Autowired
     public ProductOrderListController(ProductOrderListService productOrderListService) {
         this.productOrderListService = productOrderListService;
     }
 
-    @PostMapping("/save")
+    @PostMapping("/save/")
     public ProductOrderListDTO save(@RequestBody ProductOrderListDTO productOrderListDTO)
     {
         return productOrderListService.save(productOrderListDTO);
     }
 
-    @GetMapping("/getById")
+    @GetMapping("/getById/")
     public ProductOrderListDTO getById(@RequestParam long id)
     {
         return productOrderListService.getById(id);
     }
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/")
     public String delete(@RequestParam long id)
     {
         return productOrderListService.delete(id);

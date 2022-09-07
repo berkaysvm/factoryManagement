@@ -13,8 +13,6 @@ import java.util.List;
 public class MaterialProductController {
     private final MaterialProductService materialProductService;
 
-    //Bug 05.09.2022
-
     @Autowired
     public MaterialProductController(MaterialProductService materialProductService) {
         this.materialProductService = materialProductService;

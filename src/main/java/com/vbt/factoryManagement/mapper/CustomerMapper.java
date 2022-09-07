@@ -16,13 +16,13 @@ public class CustomerMapper {
 
     public CustomerDTO map (Customer customer)
     {
-        Set<ProductOrderList> customers = customer.getProductOrderLists();
-        Set<ProductOrderListDTO> orderListDTOS = customers.stream().map(productOrderListMapper::map).collect(Collectors.toSet());
+//        Set<ProductOrderList> customers = customer.getProductOrderLists();
+//        Set<ProductOrderListDTO> orderListDTOS = customers.stream().map(productOrderListMapper::map).collect(Collectors.toSet());
         return CustomerDTO.Builder.CustomDTOBuilderWith()
                 .id(customer.getId())
                 .customerNo(customer.getCustomerNo())
                 .companyName(customer.getCompanyName())
-                .productOrderLists(orderListDTOS)
+                //.productOrderLists(orderListDTOS)
                 .firstname(customer.getFirstname())
                 .lastname(customer.getLastname())
                 .adress(customer.getAdress())
@@ -33,10 +33,10 @@ public class CustomerMapper {
     public Customer convertEntity ( CustomerDTO customerDTO)
     {
         Customer customer = new Customer();
+        customer.setId(customerDTO.getId());
         customer.setCustomerNo(customerDTO.getCustomerNo());
         customer.setLastname(customerDTO.getLastname());
         customer.setFirstname(customerDTO.getFirstname());
-        customer.setId(customerDTO.getId());
         customer.setCompanyName(customerDTO.getCompanyName());
         customer.setAdress(customerDTO.getAdress());
         customer.setEMail(customerDTO.getEMail());

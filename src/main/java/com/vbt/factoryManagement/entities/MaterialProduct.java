@@ -16,11 +16,11 @@ public class MaterialProduct {
 
     @Column(name = "id")
     private int id;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE,targetEntity = com.vbt.factoryManagement.entities.Material.class)
     @JoinColumn(name = "material_id")
     private Material material;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE,targetEntity = com.vbt.factoryManagement.entities.Product.class)
     @JoinColumn(name = "product_id")
     private Product product;
 

@@ -1,5 +1,9 @@
 package com.vbt.factoryManagement.dto;
 
+import com.vbt.factoryManagement.entities.Material;
+import com.vbt.factoryManagement.entities.OrderCompanies;
+import com.vbt.factoryManagement.mapper.MaterialMapper;
+import com.vbt.factoryManagement.mapper.OrderCompaniesMapper;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -35,8 +39,16 @@ public class OrderMaterialRelationalDTO {
         }
 
         public Builder id(int id){this.id = id; return this;}
-        public Builder orderCompanies(OrderCompaniesDTO orderCompanies){this.orderCompanies = orderCompanies; return this;}
-        public Builder material(MaterialDTO material){this.material = material; return this;}
+        public Builder orderCompanies(OrderCompanies orderCompanies){
+            OrderCompaniesMapper orderCompaniesMapper = new OrderCompaniesMapper();
+            this.orderCompanies = orderCompaniesMapper.map2(orderCompanies);
+            return this;}
+        public Builder material(Material material){
+            MaterialMapper materialMapper = new MaterialMapper();
+
+            this.material = materialMapper.map2(material);
+            return this;
+        }
 
         public OrderMaterialRelationalDTO build()
         {

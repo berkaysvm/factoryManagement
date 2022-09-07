@@ -23,7 +23,7 @@ public class Request {
     private String explanation;
     private boolean acceptance;
 
-    @ManyToOne(targetEntity = com.vbt.factoryManagement.entities.Employee.class)
+    @ManyToOne(targetEntity = com.vbt.factoryManagement.entities.Employee.class,cascade = CascadeType.PERSIST)
     @JoinColumn(name = "employee_id")
     private Employee employee;
 

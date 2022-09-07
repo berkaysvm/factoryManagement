@@ -10,4 +10,6 @@ public interface MaterialService {
 
     MaterialDTO getById(Long id);
 
+    Material getMaterial(Long id);
+
 }

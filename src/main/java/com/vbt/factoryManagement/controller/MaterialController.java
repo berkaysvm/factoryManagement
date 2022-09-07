@@ -27,7 +27,7 @@ public class MaterialController {
     {
         return materialService.deleteById(id);
     }
-    @GetMapping("/getAll/")
+    @GetMapping("/getById/")
     public MaterialDTO getById(@RequestParam Long id)
     {
         return materialService.getById(id);
