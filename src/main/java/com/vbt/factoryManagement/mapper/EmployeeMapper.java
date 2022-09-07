@@ -64,7 +64,7 @@ public class EmployeeMapper {
                 employee.setDepartment(departmentMapper.convertEntity(employeeDTO.getDepartmentDTO()));
                 employee.setIdentityNo(employeeDTO.getIdentityNo());
                 employee.setAdress(employeeDTO.getAdress());
-                employee.setEMail(employeeDTO.getEMail());
+                employee.setEMail(employeeDTO.getEmail());
                 employee.setFirstname(employeeDTO.getFirstname());
                 employee.setLastname(employeeDTO.getLastname());
                 employee.setPhoneNumber(employeeDTO.getPhoneNumber());

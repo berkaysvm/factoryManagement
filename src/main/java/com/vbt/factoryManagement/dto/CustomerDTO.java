@@ -15,7 +15,8 @@ public class CustomerDTO {
     private Set<ProductOrderListDTO> productOrderLists;
     private String firstname;
     private String lastname;
-    private String eMail;
+
+    private String email;
     private String phoneNumber;
     private String adress;
 
@@ -29,7 +30,7 @@ public class CustomerDTO {
         this.productOrderLists = builder.productOrderLists;
         this.firstname = builder.firstname;
         this.lastname = builder.lastname;
-        this.eMail = builder.eMail;
+        this.email = builder.eMail;
         this.phoneNumber = builder.phoneNumber;
         this.adress = builder.adress;
 

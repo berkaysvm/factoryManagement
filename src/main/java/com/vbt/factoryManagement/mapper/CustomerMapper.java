@@ -1,13 +1,8 @@
 package com.vbt.factoryManagement.mapper;//package com.vbt.factoryManagement.mapper;
 
 import com.vbt.factoryManagement.dto.CustomerDTO;
-import com.vbt.factoryManagement.dto.ProductOrderListDTO;
 import com.vbt.factoryManagement.entities.Customer;
-import com.vbt.factoryManagement.entities.ProductOrderList;
 import org.springframework.stereotype.Component;
-
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Component
 public class CustomerMapper {
@@ -39,7 +34,7 @@ public class CustomerMapper {
         customer.setFirstname(customerDTO.getFirstname());
         customer.setCompanyName(customerDTO.getCompanyName());
         customer.setAdress(customerDTO.getAdress());
-        customer.setEMail(customerDTO.getEMail());
+        customer.setEMail(customerDTO.getEmail());
         customer.setPhoneNumber(customerDTO.getPhoneNumber());
         return customer;
     }
